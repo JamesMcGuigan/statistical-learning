@@ -33,4 +33,4 @@ angular.module('statisticalLearningApp.filters', [])
         return function(json) {
             return JSON.stringify(json, null, 4);
         };
-    });
+   });

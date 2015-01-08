@@ -9,14 +9,14 @@ Proof of concept demonstration for generating custom infographics, built in java
 Installation
 ============
 <pre><code># packagemanager install node GraphicsMagick
-git clone git@github.com:JamesMcGuigan/statistical-learning.git
-cd statistical-learning
+git clone git@github.com:JamesMcGuigan/infographic-generator.git
+cd infographic-generator
 npm install  # will also download bower dependencies and compile the client side browserify.js file
 npm start    # runs nodemon and compass for development
 
 # For production deployment
 npm run production  # compiles minified js/css into ./production/
-node Server.js NODE_ENV=production PORT_HTTP=4000 PORT_HTTPS=4001
+node InfographicGenerator.js NODE_ENV=production PORT_HTTP=4000 PORT_HTTPS=4001
 </code></pre>
 
 Then open up the following localhost url

@@ -8,6 +8,9 @@ id_rsa
 # Explicit Directory Removes #
 ##############################
 _old
+app/public/scss
+production
+vendor/browserify.js
 
 # Development Files #
 #####################

@@ -9,7 +9,7 @@
   "licenses": [
     {
       "type": "GPL3",
-      "url": "https://github.com/JamesMcGuigan/node-archetype/blob/master/LICENSE"
+      "url": "https://bitbucket.org/JamesMcGuigan/statistical-learning/blob/master/LICENSE"
     }
   ],
   "scripts": {
@@ -38,7 +38,7 @@
     "production_css":     "compass compile -e production --force",
 
     "code_dependancies":  "./compile_npm_dependencies.sh"
-},
+  },
   "dependencies": {
       "async": "*",
       "body-parser": "*",
@@ -73,11 +73,25 @@
     "mocha": "*",
     "nodemon": "*",
     "uglify-js": "*",
-    "yadda": "*"
+    "yadda": "*",
+    "uglifyjs": "*"
   },
   "browserify": {
     "async":                    "*",
     "github-flavored-markdown": "*",
     "node.extend":              "*"
+  },
+  "global": {
+    "jsonlint":   "*",
+    "browserify": "*"
+  },
+  "unload": {
+    "mongodb": "1.3.x",
+    "ipfilter": "*",
+    "mongoose": "3.6.x",
+    "mongoose-auto-increment": "2.1.x",
+    "mongoose-concrete-timestamps": "0.1.x",
+    "multi-node": "0.2.x",
+    "jsonpath-rep": "0.0.x"
   }
 }
