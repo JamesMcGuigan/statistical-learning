@@ -6,13 +6,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Infographic Generator</title>
+    <title>Statistical Learning</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <meta name="title"         content="Infographic Generator"/>
-    <meta name="keywords"      content="Infographic Generator"/>
+    <meta name="title"         content="Statistical Learning"/>
+    <meta name="keywords"      content="Statistical Learning"/>
     <meta name="revisit-after" content="1 week"/>
 
     <script>
@@ -32,11 +32,11 @@
     {{> includes/google-analyitics-infographic }}
 </head>
 <body lang="{{lang}}">
-    {{> partials/forkmegithub }}
+    <!-- {{ partials/forkmegithub }} -->
 
     <div class="container">
         <div class="template-header">
-            <h1 class="floating">Infographic Generator</h1>
+            <h1 class="floating">Statistical Learning</h1>
         </div>
 
         <div class="template-content">

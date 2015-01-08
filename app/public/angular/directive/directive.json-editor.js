@@ -1,4 +1,4 @@
-angular.module('infographicApp.directives').directive('jsonEditor', [ '$window', '$timeout', function ($window, $timeout) {
+angular.module('statisticalLearningApp.directives').directive('jsonEditor', [ '$window', '$timeout', function ($window, $timeout) {
     return {
         require: 'ngModel',
         link: function(scope, element, attrs, ngModelController) {

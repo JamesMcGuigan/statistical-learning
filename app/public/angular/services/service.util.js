@@ -1,4 +1,4 @@
-angular.module('infographicApp.services')
+angular.module('statisticalLearningApp.services')
     .factory("util", function() {
         var util = {
             //***** Module Functions *****//

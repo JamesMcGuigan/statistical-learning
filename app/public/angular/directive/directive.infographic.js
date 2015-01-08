@@ -1,6 +1,6 @@
 var async = require("async");
 
-angular.module('infographicApp.directives')
+angular.module('statisticalLearningApp.directives')
     .run(['$http',function($http) {
         //$http({ method: 'GET', url: '/elements/infographic.html', cache: true });
     }])

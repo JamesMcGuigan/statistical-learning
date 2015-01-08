@@ -46,6 +46,6 @@ if (cluster.isMaster) {
 //        }
     });
 } else {
-    var server = require("./InfographicGenerator.js");
+    var server = require("./Server.js");
 }
 

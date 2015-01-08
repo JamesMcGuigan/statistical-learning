@@ -3,7 +3,7 @@ var path   = require('path');
 var extend = require("node.extend");
 
 var config = {
-    name: 'Infographic Generator',
+    name: 'Statistical Learning',
     access_log: '/var/log/node/infographic-access.log',
     error_log:  '/var/log/node/infographic-error.log',
     debug_log:  '/var/log/node/infographic-debug.log',
@@ -27,7 +27,7 @@ var config = {
         cert: fs.readFileSync(path.join(__dirname, '../sslcert/san/infographic.san.crt'), 'utf8')
     },
     basicAuth: {
-        realm: "Infographic Generator",
+        realm: "Statistical Learning",
         user:  "info",
         pass:  "graphic"
     },

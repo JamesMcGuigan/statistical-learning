@@ -1,0 +1,54 @@
+    Infographic Generator#1.0.0 /var/www/infographic.jamesmcguigan.com
+    ├── angular#1.2.21 (1.3.9-build.3755+sha.e1132f5 available)
+    ├── angular-i18n#1.2.21 (1.3.9-build.3755+sha.e1132f5 available)
+    ├─┬ angular-resource#1.2.21 (1.3.9-build.3755+sha.e1132f5 available)
+    │ └── angular#1.2.21 (latest is 1.3.9-build.3755+sha.e1132f5)
+    ├─┬ angular-route#1.2.21 (1.3.9-build.3755+sha.e1132f5 available)
+    │ └── angular#1.2.21
+    ├─┬ angulartics#0.15.20 (0.17.1 available)
+    │ ├── angular#1.2.21 (1.3.9-build.3755+sha.e1132f5 available)
+    │ └─┬ jquery-waypoints#2.0.5 (latest is 3.0.1)
+    │   └── jquery#2.1.1 (2.1.3 available)
+    ├── array-generics#5563397ae5
+    ├── bootstrap-css#3.2.0
+    ├─┬ bootstrap-scss#3.2.0+1 (3.3.1 available)
+    │ └── jquery#2.1.1 (2.1.3 available)
+    ├── css3pie#b5e68ce841
+    ├── d3#3.3.13 (3.5.3 available)
+    ├── d3.chart#0.1.3 (0.2.1 available)
+    ├─┬ d3.chart.base#0.4.0
+    │ └── d3.chart#0.1.3 (latest is 0.2.1)
+    ├── datejs#1.0.0-rc1 (1.0.0-rc3 available)
+    ├── es5-shim#4.0.1 (4.0.5 available)
+    ├── es6-shim#0.15.0 (0.22.2 available)
+    ├── fastclick#1.0.2 (1.0.3 available)
+    ├── github-markdown-css#0.2.0 (2.0.2 available)
+    ├── highcharts-release#4.0.3 (4.0.4 available)
+    ├── highmaps-release#1.0.3 (1.0.4 available)
+    ├── highstock-release#2.0.3 (2.0.4 available)
+    ├── html5shiv#3.7.2
+    ├── jquery#2.1.1 (2.1.3 available)
+    ├─┬ jquery-autosize#1.18.9 (1.18.17 available)
+    │ └── jquery#2.1.1 (2.1.3 available)
+    ├─┬ jquery-easing#a6f21ff77c
+    │ └── jquery#2.1.1 (2.1.3 available)
+    ├── jquery-equal-height#332775f659
+    ├─┬ jquery-form#3.46.0
+    │ └── jquery#2.1.1 (2.1.3 available)
+    ├── jquery-legacy#1.10.2 (latest is 2.1.3)
+    ├── jquery-or#1.0.0
+    ├── jquery-placeholder#2.0.8 (2.1.0 available)
+    ├── karma#0.2.2 (0.3.0 available)
+    ├── lodash#2.4.1
+    ├── modernizr#2.8.3
+    ├─┬ ng-prettyjson#0.1.1 (0.1.3 available)
+    │ └── angular#1.2.21 (1.3.9-build.3755+sha.e1132f5 available)
+    ├─┬ ngstorage#0.3.0
+    │ └── angular#1.2.21 (1.3.9-build.3755+sha.e1132f5 available)
+    ├─┬ nvd3#1.1.15-beta
+    │ └── d3#3.3.13 (latest is 3.5.3)
+    ├── nwmatcher#1.3.1 (1.3.4 available)
+    ├── reset-css#2.0.20110126
+    ├── respond#1.4.2
+    ├── selectivizr#1.0.2
+    └── underscore#1.6.0 (1.7.0 available)

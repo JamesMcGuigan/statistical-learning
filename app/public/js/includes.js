@@ -26,6 +26,7 @@ $script([
 
     '/bower/jquery-legacy/jquery.js',
     '/bower/underscore/underscore.js',
+    '/bower/lodash/dist/lodash.js',
     '/bower/datejs/build/date-en-GB.js',
     '/bower/angular/angular.js',
     '/bower/d3/d3.js',

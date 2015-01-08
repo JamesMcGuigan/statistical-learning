@@ -1,14 +1,14 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('infographicApp', [
-    'infographicApp.config',
-    'infographicApp.controllers',
-    'infographicApp.directives',
-    'infographicApp.filters',
-    'infographicApp.resources',
-    'infographicApp.routes',
-    'infographicApp.services'
+angular.module('statisticalLearningApp', [
+    'statisticalLearningApp.config',
+    'statisticalLearningApp.controllers',
+    'statisticalLearningApp.directives',
+    'statisticalLearningApp.filters',
+    'statisticalLearningApp.resources',
+    'statisticalLearningApp.routes',
+    'statisticalLearningApp.services'
 ])
     .config(function( $analyticsProvider ) {
         $analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
@@ -17,7 +17,7 @@ angular.module('infographicApp', [
 
 
 // Declare app level module which depends on filters, and services
-angular.module('infographicApp.config', [])
+angular.module('statisticalLearningApp.config', [])
     .constant('version', "0.1")
     .constant('keyCodes', {
         enter:    13,
@@ -30,7 +30,7 @@ angular.module('infographicApp.config', [])
     });
 
 
-angular.module('infographicApp.controllers', ['ngStorage','ngPrettyJson']);
-angular.module('infographicApp.directives', []);
-angular.module('infographicApp.validators', []);
-angular.module('infographicApp.services', []);
+angular.module('statisticalLearningApp.controllers', ['ngStorage','ngPrettyJson']);
+angular.module('statisticalLearningApp.directives', []);
+angular.module('statisticalLearningApp.validators', []);
+angular.module('statisticalLearningApp.services', []);

@@ -1,5 +1,5 @@
 var async = require('async');
-var module = angular.module('infographicApp.controllers');
+var module = angular.module('statisticalLearningApp.controllers');
 
 module.controller('EditController', ['$scope', '$routeParams', '$http', "InfographicDB", "InfographicFile",
     function($scope, $routeParams, $http, InfographicDB, InfographicFile) {

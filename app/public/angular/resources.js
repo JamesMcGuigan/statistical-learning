@@ -1,4 +1,4 @@
-var infographicResources = angular.module("infographicApp.resources", ["ngResource"]);
+var infographicResources = angular.module("statisticalLearningApp.resources", ["ngResource"]);
 
 infographicResources.factory("InfographicDB", ["$resource", function($resource) {
 	return $resource("/api/mongo/:id", {}, {

@@ -1,6 +1,6 @@
 var githubMarkdown = require('github-flavored-markdown');
 
-angular.module('infographicApp.directives')
+angular.module('statisticalLearningApp.directives')
     .directive('markdown', ['$http', function($http) {
         return {
             scope: {
