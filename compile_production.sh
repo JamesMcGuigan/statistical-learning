@@ -48,6 +48,9 @@ for FILE in $CODE_FILES; do
     cat  $FILE                         >> production/includes.production.code.js
     echo -e ";\n\n"                    >> production/includes.production.code.js
 done
+
+./node_modules/.bin/ng-annotate -a production/includes.production.code.js -o production/includes.production.code.js
+
 uglifyjs production/includes.production.libs.js -o production/includes.production.libs.min.js
 uglifyjs production/includes.production.code.js -o production/includes.production.code.min.js
 

@@ -41,6 +41,7 @@
   },
   "dependencies": {
       "async": "*",
+      "basic-auth-connect": "*",
       "body-parser": "*",
       "compression": "*",
       "connect": "*",
@@ -64,6 +65,7 @@
       "node.extend": "*",
       "serve-favicon": "*",
       "underscore": "*",
+      "lodash": "*",
       "unirest": "*"
   },
   "devDependencies": {
@@ -74,7 +76,8 @@
     "nodemon": "*",
     "uglify-js": "*",
     "yadda": "*",
-    "uglifyjs": "*"
+    "uglifyjs": "*",
+    "ng-annotate": "*"
   },
   "browserify": {
     "async":                    "*",
