@@ -39,8 +39,8 @@ Project Layout
 - [/data/sources/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/data/sources/) - Example data sources
 - [/app/config/config.js](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/config/config.js) - Node configuration file
 - [/app/controllers/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/controllers/) - Node API logic
-- [/app/routes/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/routes/) - Node URL routing
-- [/app/views/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/views/) - Mustache templates for generating initial HTML page
+- [/app/backend/routes/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/backend/routes/) - Node URL routing
+- [/app/backend/views/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/backend/views/) - Mustache templates for generating initial HTML page
 - [/app/public/scss-src/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/public/scss-src/) - SASS source files
 - [/app/public/scss/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/public/scss/) - Compiled SASS -> CSS
 - [/app/public/html/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/public/html/) - Angualar HTML Snippits

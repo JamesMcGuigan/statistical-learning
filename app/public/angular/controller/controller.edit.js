@@ -1,8 +1,8 @@
 var async = require('async');
 var module = angular.module('statisticalLearningApp.controllers');
 
-module.controller('EditController', ['$scope', '$routeParams', '$http', "InfographicDB", "InfographicFile",
-    function($scope, $routeParams, $http, InfographicDB, InfographicFile) {
+module.controller('EditController', ['$scope', '$routeParams', '$http', "MongoAPI", "InfographicFile",
+    function($scope, $routeParams, $http, MongoAPI, InfographicFile) {
         var EditController = this;
         $scope.config = {};
 
@@ -14,7 +14,7 @@ module.controller('EditController', ['$scope', '$routeParams', '$http', "Infogra
                     $scope.config.uuid = "file:"+filename;
                 });
             } else {
-                InfographicDB.get({ id: $routeParams.id }, function(response) {
+                MongoAPI.get({ id: $routeParams.id }, function(response) {
                     $scope.config = response.data;
                 });
             }
@@ -33,7 +33,7 @@ module.controller('EditController', ['$scope', '$routeParams', '$http', "Infogra
                     alert("Error: " + response.error);
                 });
             } else {
-//                InfographicDB.get({ id: $routeParams.id }, function(response) {
+//                MongoAPI.get({ id: $routeParams.id }, function(response) {
 //                    $scope.config = response.data;
 //                });
             }

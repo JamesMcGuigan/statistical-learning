@@ -60,11 +60,14 @@ $script([
                 $script([
                     '/angular/controller/controller.edit.js',
                     '/angular/controller/controller.list.js',
+                    '/angular/controller/controller.login.js',
                     '/angular/directive/directive.infographic.js',
                     '/angular/directive/directive.infographic.static.js',
                     '/angular/directive/directive.json-editor.js',
                     '/angular/directive/directive.markdown.js',
+                    '/angular/directive/directive.navbar.js',
                     '/angular/services/service.util.js',
+                    '/angular/services/service.login.js',
                     '/angular/filters.js',
                     '/angular/resources.js',
                     '/angular/routes.js'

@@ -14,9 +14,10 @@ if( !require('fs').existsSync("app/sslcert/san/infographic.san.key") ) {
     } catch(e) {}
 }
 
-var config         = require('./app/config/config.js')[process.env.NODE_ENV];
-var _              = require("underscore");
+var config         = require('./app/backend/config/config.js')[process.env.NODE_ENV];
+var _              = require("lodash");
 var express        = require('express');
+var basicAuth      = require('basic-auth-connect');
 var bodyParser     = require('body-parser');
 var compression    = require('compression');
 var errorHandler   = require('express-error-handler');
@@ -34,13 +35,14 @@ var mmm            = require('mmm');
 var morgan         = require('morgan');
 var path           = require('path');
 var session        = require('express-session');
-
 var MongoStore     = require('connect-mongo')(session);
 
 var app = express();
 var access_log_stream = fs.createWriteStream(config.access_log, {flags: 'a'});
 var error_log_stream  = fs.createWriteStream(config.error_log,  {flags: 'a'});
 
+// Basic Auth
+app.use("/", basicAuth(config.basicAuth.user,config.basicAuth.pass));
 
 // Logging
 if( ["staging","production"].indexOf(process.env.NODE_ENV) != -1 ) {
@@ -74,7 +76,7 @@ app.use(flash());
 
 
 // HTML Rendering Settings
-app.set('views', __dirname + '/app/views');
+app.set('views', __dirname + '/app/backend/views');
 mmm.setEngine('hogan.js');
 app.set('view engine', 'mmm');
 
@@ -89,9 +91,9 @@ app.use('/README.md',   express.static(__dirname + '/README.md'));
 
 app.use(connectDomain()); // allow express to output propper stack traces
 
-require('./app/routes/pageRoutes.js')(app);
-require('./app/routes/APIRoutes.js')(app);
-//require('./app/routes/errorRoutes.js')(app);
+require('./app/backend/routes/pageRoutes.js')(app);
+require('./app/backend/routes/APIRoutes.js')(app);
+//require('./app/backend/routes/errorRoutes.js')(app);
 
 
 // Error Handling

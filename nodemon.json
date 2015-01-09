@@ -4,7 +4,7 @@
         ".git/",
         ".sass-cache/",
         "_sandbox/",
-        "app/views/",
+        "app/backend/views/",
         "bower/",
         "node_modules/",
         "public/",

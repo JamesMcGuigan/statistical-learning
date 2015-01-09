@@ -23,13 +23,13 @@ var config = {
     },
 
     sslcert: {
-        key:  fs.readFileSync(path.join(__dirname, '../sslcert/san/infographic.san.key'), 'utf8'),
-        cert: fs.readFileSync(path.join(__dirname, '../sslcert/san/infographic.san.crt'), 'utf8')
+        key:  fs.readFileSync(path.join(__dirname, '../../sslcert/san/infographic.san.key'), 'utf8'),
+        cert: fs.readFileSync(path.join(__dirname, '../../sslcert/san/infographic.san.crt'), 'utf8')
     },
     basicAuth: {
         realm: "Statistical Learning",
-        user:  "info",
-        pass:  "graphic"
+        user:  "hal",
+        pass:  "9000"
     },
     cookieSecret:  "Sometimes me think what is love, and then me think love is what last cookie is for. Me give up the last cookie for you!",
     sessionSecret: "Don't try to write too much in a single session. One thousand words a day is quite enough. Stop after about four or five hours?",

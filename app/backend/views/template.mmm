@@ -36,7 +36,7 @@
 
     <div class="container">
         <div class="template-header">
-            <h1 class="floating">Statistical Learning</h1>
+            <navbar/>
         </div>
 
         <div class="template-content">

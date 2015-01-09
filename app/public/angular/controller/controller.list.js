@@ -16,8 +16,8 @@ module.controller("TableSortController", ['$scope', function($scope, options) {
 }]);
 
 module.controller('ListController',
-    ['$scope', '$route', '$sessionStorage', '$location', '$controller', "InfographicDB", "InfographicFile",
-    function($scope, $route, $sessionStorage, $location, $controller, InfographicDB, InfographicFile) {
+    ['$scope', '$route', '$sessionStorage', '$location', '$controller', "MongoAPI", "InfographicFile",
+    function($scope, $route, $sessionStorage, $location, $controller, MongoAPI, InfographicFile) {
         $controller('TableSortController', { $scope: $scope });
         var ListController = this;
 
@@ -31,9 +31,9 @@ module.controller('ListController',
         });
 
         //// TODO: Mongo Not Implented Yet
-        //InfographicDB.get(function(response) {
+        //MongoAPI.get(function(response) {
         //    $scope.list = $scope.list.concat(response.data);
-        //    console.log('InfographicDB', 'response', response.data);
+        //    console.log('MongoAPI', 'response', response.data);
         //    console.log('controller.list:36', '$scope.list', $scope.list);
         //});
 
