@@ -17,19 +17,22 @@
 
             <div ng-if="!user.username">
                 <ul class="nav navbar-nav navbar-right navbar-button-bar">
+                    <!--
                     <li><form ng-submit="login()">
                         <span ng-bind="loginForm.error" class="alert-danger"></span>
                         <input class="form-control" type="text"     placeholder="username" ng-model="loginForm.username"/>
                         <input class="form-control" type="password" placeholder="password" ng-model="loginForm.password"/>
                         <input type="submit" class="btn btn-primary" value="Login"/>
                     </form></li>
+                    -->
+                    <li><a href="#/login"   ><button type="button" class="btn btn-primary">Login</button></a></li>
                     <li><a href="#/register"><button type="button" class="btn btn-success">Register</button></a></li>
                 </ul>
             </div>
 
             <div ng-if="user.username">
                 <ul class="nav navbar-nav navbar-right navbar-button-bar">
-                    <li><p><button type="button" class="btn" ng-click="logout()">Logout</button></p></li>
+                    <li><a href="/user/logout"><button type="button" class="btn" >Logout</button></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#/user">Welcome {{user.name}}</a></li>

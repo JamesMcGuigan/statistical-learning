@@ -11,9 +11,7 @@ module.exports = function(app) {
     });
     app.get("/user/logout", function(request, response) {
         UserAPI.logout(request, function() {
-            response.json({
-                user:  null
-            })
+            response.redirect("/");
         });
     });
     app.get("/user/current", function(request, response) {

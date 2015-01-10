@@ -33,9 +33,10 @@ var UserAPI = module.exports = {
         });
     },
 
-    logout: function(request) {
+    logout: function(request, callback) {
         request.session.username = null;
         request.session.loginTimestamp = 0;
+        if( callback instanceof Function ) { callback(); }
     },
 
     /**

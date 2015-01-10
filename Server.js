@@ -14,7 +14,7 @@ if( !require('fs').existsSync("app/sslcert/san/infographic.san.key") ) {
     } catch(e) {}
 }
 
-var config         = require('./app/backend/config/config.js')[process.env.NODE_ENV];
+var config         = require('./app/server/config/config.js')[process.env.NODE_ENV];
 var _              = require("lodash");
 var express        = require('express');
 var basicAuth      = require('basic-auth-connect');
@@ -78,7 +78,7 @@ app.use(flash());
 
 
 // HTML Rendering Settings
-app.set('views', __dirname + '/app/backend/views');
+app.set('views', __dirname + '/app/server/views');
 mmm.setEngine('hogan.js');
 app.set('view engine', 'mmm');
 
@@ -93,10 +93,10 @@ app.use('/README.md',   express.static(__dirname + '/README.md'));
 
 app.use(connectDomain()); // allow express to output propper stack traces
 
-require('./app/backend/routes/pageRoutes.js')(app);
-require('./app/backend/routes/APIRoutes.js')(app);
-require('./app/backend/routes/UserAPIRoutes.js')(app);
-//require('./app/backend/routes/errorRoutes.js')(app);
+require('./app/server/routes/pageRoutes.js')(app);
+require('./app/server/routes/APIRoutes.js')(app);
+require('./app/server/routes/UserAPIRoutes.js')(app);
+//require('./app/server/routes/errorRoutes.js')(app);
 
 
 // Error Handling
