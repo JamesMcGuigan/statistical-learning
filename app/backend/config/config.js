@@ -8,7 +8,7 @@ var config = {
     error_log:  '/var/log/node/infographic-error.log',
     debug_log:  '/var/log/node/infographic-debug.log',
 
-    db:      'mongodb://localhost/infographicdb',
+    db:      'mongodb://localhost/statistical-learning',
     crudPermissions: {
         edit: ["infographics"],
         view: ["infographics"]
@@ -33,6 +33,8 @@ var config = {
     },
     cookieSecret:  "Sometimes me think what is love, and then me think love is what last cookie is for. Me give up the last cookie for you!",
     sessionSecret: "Don't try to write too much in a single session. One thousand words a day is quite enough. Stop after about four or five hours?",
+    passwordSalt:  "NaCl",
+    loginTimeout:  60*60*1000, // 1 hour in milliseconds
 
     facebook: {
         clientID:       '',

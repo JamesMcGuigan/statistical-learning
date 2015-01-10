@@ -67,7 +67,7 @@ $script([
                     '/angular/directive/directive.markdown.js',
                     '/angular/directive/directive.navbar.js',
                     '/angular/services/service.util.js',
-                    '/angular/services/service.login.js',
+                    '/angular/services/service.user.js',
                     '/angular/filters.js',
                     '/angular/resources.js',
                     '/angular/routes.js'

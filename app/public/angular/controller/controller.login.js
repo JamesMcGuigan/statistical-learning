@@ -1,44 +1,54 @@
 var async = require('async');
 var module = angular.module('statisticalLearningApp.controllers');
 
-module.controller('LoginController', ['$scope', '$routeParams', '$http',
-    function($scope, $routeParams, $http, MongoAPI) {
-        var EditController = this;
-        $scope.config = {};
+module.controller('LoginController',
+    function($rootScope, $scope, $routeParams, $http, $timeout, UserService, MongoAPI) {
+        $scope.init = function() {
+            // $rootScope.user
 
-//        $scope.load = function() {
-//            if( $routeParams.id.match(/^file:/) ) {
-//                var filename = $routeParams.id.replace(/^file:/,'');
-//                InfographicFile.get({ id: filename }, function(response) {
-//                    $scope.config      = response.data;
-//                    $scope.config.uuid = "file:"+filename;
-//                });
-//            } else {
-//                MongoAPI.get({ id: $routeParams.id }, function(response) {
-//                    $scope.config = response.data;
-//                });
-//            }
-//        };
-//
-//        $scope.save = function() {
-//            if( $routeParams.id.match(/^file:/) ) {
-//                var filename = $routeParams.id.replace(/^file:/,'');
-//                InfographicFile.post({ id: filename }, $scope.config, function(response) {
-//                    if( response.success ) {
-//                        alert(filename + " saved");
-//                    } else {
-//                        alert("Error: " + response.error);
-//                    }
-//                }, function(response) {
-//                    alert("Error: " + response.error);
-//                });
-//            } else {
-////                MongoAPI.get({ id: $routeParams.id }, function(response) {
-////                    $scope.config = response.data;
-////                });
-//            }
-//        };
-//
-//        $scope.load();
+            $scope.loginForm = {
+                username: "",
+                password: "",
+                error:    ""
+            };
+
+            $scope.registrationForm = {
+                username: "",
+                password: "",
+                success:  false,
+                error:    ""
+            };
+        };
+
+        $scope.login = function() {
+            UserService.login($scope.loginForm.username, $scope.loginForm.password, function(error, user) {
+                $scope.loginForm.error = UserService.loginError || "";
+                $timeout(function() { $rootScope.$apply(); });
+            })
+        };
+
+        $scope.register = function() {
+            delete $scope.registrationForm.error;
+            UserService.register($scope.registrationForm, function(error, user) {
+                if( error ) {
+                    $scope.registrationForm.error   = error;
+                    $scope.registrationForm.success = false;
+                } else {
+                    UserService.login($scope.registrationForm.username, $scope.registrationForm.password, function(error, user) {
+                        $scope.registrationForm.success = !!$rootScope.user;
+                    });
+                }
+                $timeout(function() { $rootScope.$apply(); });
+            })
+        };
+
+        $scope.logout = function() {
+            UserService.logout(function() {
+                $scope.loginForm.error = "";
+                $scope.registrationForm.success = false; // reset flag
+                $location.path('/');
+            });
+        };
+        $scope.init();
     }
-]);
+);

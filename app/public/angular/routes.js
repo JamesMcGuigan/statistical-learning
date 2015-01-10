@@ -1,8 +1,10 @@
 angular.module('statisticalLearningApp.routes',['ngRoute','angulartics','angulartics.google.analytics']).config(["$routeProvider",
     function($routeProvider) {
-        $routeProvider.otherwise({ redirectTo: "/login" });
-        $routeProvider.when("/login",  { templateUrl: "html/login.html", controller: "LoginController" });
+        $routeProvider.otherwise({ redirectTo: "/" });
+        $routeProvider.when("/login",     { templateUrl: "html/login.html",    controller: "LoginController" });
+        $routeProvider.when("/register",  { templateUrl: "html/register.html", controller: "LoginController" });
 
+        $routeProvider.when("/",          { templateUrl: "home.html" });
 
         $routeProvider.when("/student/",                                { redirectTo:  "/student/quiz" });
         $routeProvider.when("/student/quiz/list",                       { templateUrl: "html/quiz/list.html", controller: "StudentQuizListController" });

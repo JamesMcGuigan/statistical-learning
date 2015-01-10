@@ -30,7 +30,7 @@ angular.module('statisticalLearningApp.config', [])
     });
 
 
-angular.module('statisticalLearningApp.controllers', ['ngStorage','ngPrettyJson']);
+angular.module('statisticalLearningApp.controllers', ['ngStorage','ngPrettyJson','statisticalLearningApp.services']);
 angular.module('statisticalLearningApp.directives', []);
 angular.module('statisticalLearningApp.validators', []);
 angular.module('statisticalLearningApp.services', []);

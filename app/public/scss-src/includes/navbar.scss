@@ -1,7 +1,27 @@
 ul.navbar-right {
   margin-right: -25px;
 }
+ul.navbar-button-bar > li > p,
+ul.navbar-button-bar > li > form,
 ul.navbar-button-bar > li > a {
+  display: inline-block;
   margin: 0px;
   padding: 7px;
+
+  input {
+    padding-right: 1em;
+    max-width: 10em;
+    display: inline-block;
+  }
+}
+
+.navbar {
+  .registerForm {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: red;
+
+      border: 1px solid #808080;
+  }
 }

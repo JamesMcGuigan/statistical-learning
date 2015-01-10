@@ -72,6 +72,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
 app.use(methodOverride());
 app.use(cookieParser(config.cookieSecret));
+app.use(session({secret: config.sessionSecret}));
+//app.use(session({store: new MongoStore({ url: config.db }), secret: config.sessionSecret}));
 app.use(flash());
 
 
@@ -93,6 +95,7 @@ app.use(connectDomain()); // allow express to output propper stack traces
 
 require('./app/backend/routes/pageRoutes.js')(app);
 require('./app/backend/routes/APIRoutes.js')(app);
+require('./app/backend/routes/UserAPIRoutes.js')(app);
 //require('./app/backend/routes/errorRoutes.js')(app);
 
 

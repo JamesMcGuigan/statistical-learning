@@ -1,0 +1,29 @@
+<div class="jumbotron">
+
+    <div ng-if="registrationForm.success">
+        <h2>Registration Successful</h2>
+        <p>Logged in as {{user.name}} <{{user.username}}></p>
+    </div>
+    <div ng-if="!registrationForm.success">
+        <h2>Register</h2>
+        <form ng-submit="register()">
+            <div ng-if="registrationForm.error">
+                <div class="alert alert-danger" ng-bind="registrationForm.error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="registrationFormName">Name</label>
+                <input type="text" class="form-control" id="registrationFormName" name="username" placeholder="Name" ng-model="registrationForm.name">
+            </div>
+            <div class="form-group">
+                <label for="registrationFormUsername">Username</label>
+                <input type="text" class="form-control" id="registrationFormUsername" name="username" placeholder="Username" ng-model="registrationForm.username">
+            </div>
+            <div class="form-group">
+                <label for="registrationFormPassword">Password</label>
+                <input type="password" class="form-control" id="registrationFormPassword" name="password" placeholder="Password" ng-model="registrationForm.password">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Register"></input>
+        </form>
+    </div>
+</div>

@@ -1,6 +1,16 @@
-var infographicResources = angular.module("statisticalLearningApp.resources", ["ngResource"]);
+var AppResources = angular.module("statisticalLearningApp.resources", ["ngResource"]);
 
-infographicResources.factory("MongoAPI", ["$resource", function($resource) {
+//AppResources.factory("UserAPI", function($resource) {
+//	return {
+//		login:      $resource("/user/login").post,
+//		logout:     $resource("/user/logout").get,
+//		getCurrent: $resource("/user/current").get,
+//		register:   $resource("/user/register").post
+//	}
+//});
+
+
+AppResources.factory("MongoAPI", ["$resource", function($resource) {
 	return $resource("/api/mongo/:id", {}, {
 		get:    {method: "GET",    isArray: false},
 		post:   {method: "POST",   isArray: false},
@@ -8,7 +18,7 @@ infographicResources.factory("MongoAPI", ["$resource", function($resource) {
 		delete: {method: "DELETE", isArray: false}
 	});
 }]);
-infographicResources.factory("InfographicFile", ["$resource", function($resource) {
+AppResources.factory("InfographicFile", ["$resource", function($resource) {
     return $resource("/api/filesystem/:id", {}, {
         get:    {method: "GET",    isArray: false},
         post:   {method: "POST",   isArray: false}

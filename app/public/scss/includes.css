@@ -8263,13 +8263,38 @@ form.ng-invalid button {
   vertical-align: middle;
 }
 
+/* line 2, ../scss-src/includes/forms.scss */
+.jumbotron h1, .jumbotron h2 {
+  margin-top: 0;
+}
+
 /* line 1, ../scss-src/includes/navbar.scss */
 ul.navbar-right {
   margin-right: -25px;
 }
 
 /* line 4, ../scss-src/includes/navbar.scss */
+ul.navbar-button-bar > li > p,
+ul.navbar-button-bar > li > form,
 ul.navbar-button-bar > li > a {
+  display: inline-block;
   margin: 0px;
   padding: 7px;
+}
+/* line 11, ../scss-src/includes/navbar.scss */
+ul.navbar-button-bar > li > p input,
+ul.navbar-button-bar > li > form input,
+ul.navbar-button-bar > li > a input {
+  padding-right: 1em;
+  max-width: 10em;
+  display: inline-block;
+}
+
+/* line 19, ../scss-src/includes/navbar.scss */
+.navbar .registerForm {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: red;
+  border: 1px solid #808080;
 }
