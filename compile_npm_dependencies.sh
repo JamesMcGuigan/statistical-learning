@@ -1,6 +1,6 @@
 #!/bin/bash
 grep -rHIin "require(" ./ \
-    --no-messages --include="*.js" --exclude-dir '.git' --exclude-dir '_old' --exclude-dir 'vendor' --exclude-dir 'node_modules' --exclude-dir 'bower' |
+    --no-messages --include="*.js" --exclude-dir '.git' --exclude-dir '_old' --exclude-dir 'vendor' --exclude-dir 'node_modules' --exclude-dir 'bower' --exclude-dir 'production' |
     perl -n -e 'm/require\((.*?)\)/ && print "$1\n" ' |
     sed "s/'/\"/g" | grep -v '\.js"' |
     perl -p -e 's/$/: "*",/' |

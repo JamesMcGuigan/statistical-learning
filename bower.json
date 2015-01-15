@@ -16,10 +16,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.3.9",
-    "angular-i18n": "1.3.9",
-    "angular-resource": "1.3.9",
-    "angular-route": "1.3.9",
+    "angular": "1.3.8",
+    "angular-i18n": "1.3.8",
+    "angular-resource": "1.3.8",
+    "angular-route": "1.3.8",
     "angulartics": "*",
     "array-generics": "plusdude/array-generics",
     "bootstrap-css": "*",
@@ -31,11 +31,6 @@
     "datejs": "*",
     "es5-shim": "*",
     "es6-shim": "*",
-    "fastclick": "*",
-    "github-markdown-css": "*",
-    "highcharts-release": "*",
-    "highmaps-release": "*",
-    "highstock-release": "*",
     "html5shiv": "*",
     "jquery": "jquery#2",
     "jquery-autosize": "jackmoore/autosize",
@@ -48,13 +43,10 @@
     "modernizr": "*",
     "ng-prettyjson": "*",
     "ngstorage": "*",
-    "nvd3": "*",
     "nwmatcher": "*",
-    "reset-css": "*",
-    "respond": "*",
     "selectivizr": "*",
-    "underscore": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "lodash-contrib": "*"
   },
   "devDependencies": {
     "karma": "*",
@@ -74,7 +66,16 @@
     "requirejs": "*",
     "requirejs-plugins": "*",
     "jquery.autocomplete": "devbridge/jQuery-Autocomplete#1.2.7",
-    "pngfix": "http://perishablepress.com/wp/wp-content/online/code/png-htc-fix.zip"
+    "pngfix": "http://perishablepress.com/wp/wp-content/online/code/png-htc-fix.zip",
+    "fastclick": "*",
+    "github-markdown-css": "*",
+    "highcharts-release": "*",
+    "highmaps-release": "*",
+    "highstock-release": "*",
+    "reset-css": "*",
+    "respond": "*",
+    "underscore": "*",
+    "nvd3": "*"
   },
   "authors": [
     "James McGuigan <james.mcguigan.personal@gmail.com>"
@@ -83,6 +84,7 @@
   "homepage": "infographic.jamesmcguigan.com",
   "private": false,
   "resolutions": {
-    "angular": ">=1.0.8"
+    "angular": ">=1.0.8",
+    "d3": "~3.3.11"
   }
 }

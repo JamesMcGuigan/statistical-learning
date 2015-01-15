@@ -1,0 +1,225 @@
+https://docs.google.com/spreadsheets/d/1pq0lgAcM1-yZHU5DwZQZjOk1DVlCSMim6csqdDB-3tk/edit#gid=616296061
+khanacadamy-curriculum.csv
+
+
+1 quiz per (p = Title, Tutorial, Topic, Year) = 562 Quizes
+100 questions per quiz (Q1, Q2... multiple choice A, B, C, D, E, F) - p
+7 years/grades
+3 teachers per year (p teacher)
+30 students per teacher (p student)
+630 students per school
+3 schools
+
+
+{
+    "curriculum": [
+        {
+            "curriculum_id":
+            "curriculum_date_created":
+            "curriculum_url":
+            "quiz_name":
+            "subject":
+            "topic":
+            "lesson":
+            "quiz_id":
+            "curriculum_year":
+        }
+    ],
+    "quizes": {
+        "quiz_name": {
+            "quiz_name":     "Count To 100"
+            "curriculum_id": ""
+            "teacher_name":  ""
+            "question_ids":  [],
+        }
+    },
+    "quiz_questions": {
+        "question_id": {
+            "question_id":      "uuid",
+            "question_text":    "Q1",
+            "question_options": ["A","B","C","D","E","F"]
+            "question_answer":  "B" (rand),
+            "quiz_id":          "uuid",
+            "p": {
+                "question_id": 0-1
+            }
+        }
+    },
+    "quiz_submission": {
+        "uuid": {
+            "date":         "",
+            "quiz_name":    "",
+            "student_name": "",
+            "answers": [ uuid: answer ]
+            "marks":   [ uuid: score  ]
+            "grade":   0-100
+        }
+    },
+
+    "students": {
+        "student_name": {
+            "student_name": "",
+            "p" {
+                "student_id":   0-1,
+                "lessons": [{id: p}]
+                "topics":  []
+                "years":   []
+                "teacher": []
+            }
+        }
+    }
+    "teachers": {
+        "teacher_name": {
+            teacher_name: "",
+            school_year" ""
+            p: {
+                "lessons": [{id: p}]
+                "topics":  []
+                "years":   []
+            }
+        }
+    }
+
+    "filters": {
+        "school_year": ""
+        "teacher_name": "",
+        "student_name": "",
+        "lesson": "",
+        "topic":  "",
+        "subject": ""
+    }
+
+    "lessons": [],
+    "topics":  [],
+    "years":   [],
+
+    "dictionaries": {
+        "first_names": []
+        "last_names":  []
+    }
+}
+
+
+Queries:
+
+
+
+
+Charts:
+
+Line chart: 3 Dimensions (X Axis, Average over group, multiple lines) | multi-chart group by
+Bar  chart: 2 Dimensions (X Axis, Average over group) | multi-chart group by
+Pie  chart: 1 Dimensions (Average over group) | multi-chart group by
+Table
+
+
+
+Distrabution curve of all grades (0-100) filter by (subject/teacher/year)
+Average grade
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 3 Schools
+// 540 Students Per School (6*3*30)
+// 6 Years Per School
+// 3 Classes Per School Year
+// (6 d6) Students Per Class
+
+
+
+
+
+
+
+
+
+{
+    "quizes": {
+        id:      "algebra-101",
+        title:   "Algebra 101",
+        date: {
+            created:
+            modified:
+        },
+        topics:  "maths, algebra",
+        intro:   "Ten multiple choice and free entry questions",
+
+        questionIDs: [
+            "123",
+            "456"
+        ]
+    },
+
+    "questions": {
+        "question-1" {
+            id:      "question-1",
+            text:    "1 + 1 = ",
+            image:   "",
+            format:  "text|number|radio|checkbox",
+            options: null,
+            hints:   [ "0, 1, 2, 3, 4, 5" ]
+            topics:  "addition",
+            points:  1,
+        },
+        "question-2" {
+            id:      "question-2",
+            text:    "√4",
+            image:   "",
+            format:  "checkbox",
+            options: [-3, -2, -1, 0, 1, 2, 3],
+            hints:   [ "the square of a negative number is positive" ],
+            topics:  "square roots",
+            points:  2
+
+        }
+    },
+    "answers": {
+        "question-1": "2",
+        "question-1": [-2,2]
+    },
+    "submissions": [
+        {
+           user:    "",
+           quizID:  "",
+           date: {
+            started:   null.
+            completed: null.
+            submitted: null.
+           },
+
+           // how to do history
+           answers: {
+             "question-1": { question: "question-1", answer: "2",    timestamp: null }
+             "question-2": { question: "question-2", answer: [-2,2], timestamp: null }
+           },
+           history: [
+             { question: "question-1", answer: "1",    timestamp: null, final: false },
+             { question: "question-1", answer: "2",    timestamp: null, final: true }
+             { question: "question-2", answer: [2],    timestamp: null, final: false },
+             { question: "question-2", answer: [-2,2], timestamp: null, final: true }
+           ]
+           complete: true,
+           score: 1
+        }
+    ],
+    "users": {
+        name:   "James McGuigan",
+        dob:    "03/12/1982",
+        school: "life"
+    }
+}
