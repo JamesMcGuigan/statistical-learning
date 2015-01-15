@@ -132,7 +132,7 @@ async.waterfall([
                     "quiz_name":       curriculum.quiz_name,
                     "teacher_name":    teacher.teacher_name,
                     "curriculum_year": curriculum.curriculum_year,
-                    "questions":       []
+                    "questions":       {}
                 }
 
                 for(var i=1; i<=10; i++) {
@@ -164,23 +164,31 @@ async.waterfall([
                     quiz_submission.submission_answers[question.uuid] = _.sample(question.question_options);
                 }
             })
-        }
+        };
         var mark_quiz_submission = function(quiz_submission, quiz) {
-            _.forIn(quiz_submission.submission_answers, function(submission_answer, uuid) {
-                quiz_submission.submission_marks[uuid] = (submission_answer === quiz.questions[uuid].question_answer) ? 1 : 0;
-            });
-            quiz_submission.submission_score =
-                _.reduce(quiz_submission.submission_marks, _.add) / _.values(quiz_submission.submission_marks).length
-        }
+            var marks_totals = 0;
+            for( var uuid in quiz_submission.submission_answers ) {
+                if( quiz_submission.submission_answers[uuid] === quiz.questions[uuid].question_answer) {
+                    quiz_submission.submission_marks[uuid] =  1;
+                } else {
+                    quiz_submission.submission_marks[uuid] =  0;
+                }
+                marks_totals += quiz_submission.submission_marks[uuid];
+            }
+            quiz_submission.submission_score = marks_totals / _.values(quiz_submission.submission_marks).length;
+
+            console.log("curriculum-generate.js:174:mark_quiz_submission", "quiz_submission.submission_score", quiz_submission.submission_score)
+        };
 
 
         lookup.quiz_submissions = [];
+        var dirty_inserts = 0;
         _.forEach(lookup.students, function(student) {
             _(lookup.quizes).where({ curriculum_year: student.curriculum_year }).forEach(function(quiz) {
                 var quiz_submission = {
                     quiz_name:          quiz.quiz_name,
-                    submission_answers: [],
-                    submission_marks:   [],
+                    submission_answers: {},
+                    submission_marks:   {},
                     submission_score:   0
                 };
                 answer_quiz_submission(quiz_submission, quiz);
@@ -188,11 +196,19 @@ async.waterfall([
 
                 lookup.quiz_submissions.push(quiz_submission)
                 console.log("curriculum-generate.js:183:", "quiz_submission", quiz_submission)
-            })
-        })
-        db.collection('quiz_submissions').insert(lookup.quiz_submissions, function() {
-            next();
+
+                dirty_inserts++;
+                db.collection('quiz_submissions').insert(quiz_submission, function() {
+                    dirty_inserts--;
+                });
+            });
         });
+        var setIntervalID = setInterval(function() {
+            if( dirty_inserts === 0 ) {
+                clearInterval(setIntervalID);
+                next();
+            }
+        })
     }
 ], function() {
     process.exit();

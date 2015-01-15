@@ -62,6 +62,9 @@
     "jquery-ui": "*",
     "jquery.cookie": "*",
     "jquery.easing": "*",
+    "lodash": "*",
+    "lodash-contrib": "*",
+    "lodash.math": "Delapouite/lodash.math",
     "parallax": "*",
     "requirejs": "*",
     "requirejs-plugins": "*",
@@ -74,7 +77,6 @@
     "highstock-release": "*",
     "reset-css": "*",
     "respond": "*",
-    "underscore": "*",
     "nvd3": "*"
   },
   "authors": [
