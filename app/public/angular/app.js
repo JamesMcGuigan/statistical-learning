@@ -1,23 +1,24 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('statisticalLearningApp', [
-    'statisticalLearningApp.config',
-    'statisticalLearningApp.controllers',
-    'statisticalLearningApp.directives',
-    'statisticalLearningApp.filters',
-    'statisticalLearningApp.resources',
-    'statisticalLearningApp.routes',
-    'statisticalLearningApp.services'
+angular.module('AngularApp', [
+    'AngularApp.config',
+    'AngularApp.controllers',
+    'AngularApp.directives',
+    'AngularApp.filters',
+    'AngularApp.resources',
+    'AngularApp.routes',
+    'AngularApp.services',
+    "tableSort"
 ])
-    .config(function( $analyticsProvider ) {
-        $analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
-        $analyticsProvider.withAutoBase(true);  /* Records full path */
-    });
+    //.config(function( $analyticsProvider ) {
+    //    $analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
+    //    $analyticsProvider.withAutoBase(true);  /* Records full path */
+    //});
 
 
 // Declare app level module which depends on filters, and services
-angular.module('statisticalLearningApp.config', [])
+angular.module('AngularApp.config', [])
     .constant('version', "0.1")
     .constant('keyCodes', {
         enter:    13,
@@ -30,7 +31,7 @@ angular.module('statisticalLearningApp.config', [])
     });
 
 
-angular.module('statisticalLearningApp.controllers', ['ngStorage','ngPrettyJson','statisticalLearningApp.services']);
-angular.module('statisticalLearningApp.directives', []);
-angular.module('statisticalLearningApp.validators', []);
-angular.module('statisticalLearningApp.services', []);
+angular.module('AngularApp.controllers', ['ngStorage','ngPrettyJson','AngularApp.services']);
+angular.module('AngularApp.directives', []);
+angular.module('AngularApp.validators', []);
+angular.module('AngularApp.services', []);

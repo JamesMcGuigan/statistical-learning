@@ -1,4 +1,4 @@
-angular.module('statisticalLearningApp.services')
+angular.module('AngularApp.services')
     .factory("util", function() {
         var util = {
             //***** Module Functions *****//

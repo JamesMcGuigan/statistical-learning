@@ -1,6 +1,7 @@
 @charset "UTF-8";
-@import url(../../../bower/github-markdown-css/github-markdown.css);
-/* line 5, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+@import url(../../../bower/c3/c3.css);
+@import url(../../../bower/angular-tablesort/tablesort.css);
+/* line 5, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,47 +23,55 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
+}
+
+/* line 1, ../scss-src/includes/settings.scss */
+a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -1473,7 +1482,7 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
-  background-color: #fff;
+  background-color: white;
 }
 
 /* line 36, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_scaffolding.scss */
@@ -1529,7 +1538,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.42857;
-  background-color: #fff;
+  background-color: white;
   border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -3203,7 +3212,7 @@ pre code {
 }
 /* line 6, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 table {
-  background-color: transparent;
+  background-color: #e5f6ff;
 }
 
 /* line 9, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
@@ -3235,12 +3244,12 @@ th {
   padding: 8px;
   line-height: 1.42857;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #8fb8cc;
 }
 /* line 41, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #8fb8cc;
 }
 /* line 50, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table > caption + thead > tr:first-child > th,
@@ -3253,11 +3262,11 @@ th {
 }
 /* line 57, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table > tbody + tbody {
-  border-top: 2px solid #ddd;
+  border-top: 2px solid #8fb8cc;
 }
 /* line 62, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table .table {
-  background-color: #fff;
+  background-color: white;
 }
 
 /* line 75, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
@@ -3272,7 +3281,7 @@ th {
 
 /* line 88, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table-bordered {
-  border: 1px solid #ddd;
+  border: 1px solid #8fb8cc;
 }
 /* line 94, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table-bordered > thead > tr > th,
@@ -3281,7 +3290,7 @@ th {
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > th,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #ddd;
+  border: 1px solid #8fb8cc;
 }
 /* line 101, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table-bordered > thead > tr > th,
@@ -3291,12 +3300,12 @@ th {
 
 /* line 114, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table-striped > tbody > tr:nth-child(odd) {
-  background-color: #f9f9f9;
+  background-color: #d9f2ff;
 }
 
 /* line 125, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
 .table-hover > tbody > tr:hover {
-  background-color: #f5f5f5;
+  background-color: #cceeff;
 }
 
 /* line 135, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
@@ -3325,13 +3334,13 @@ table th[class*="col-"] {
 .table > tfoot > tr > th.active,
 .table > tfoot > tr.active > td,
 .table > tfoot > tr.active > th {
-  background-color: #f5f5f5;
+  background-color: #cceeff;
 }
 
 /* line 20, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/mixins/_table-row.scss */
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover, .table-hover > tbody > tr.active:hover > td, .table-hover > tbody > tr:hover > .active, .table-hover > tbody > tr.active:hover > th {
-  background-color: #e8e8e8;
+  background-color: #b3e5ff;
 }
 
 /* line 9, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/mixins/_table-row.scss */
@@ -3426,7 +3435,7 @@ table th[class*="col-"] {
     margin-bottom: 15px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
+    border: 1px solid #8fb8cc;
   }
   /* line 183, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_tables.scss */
   .table-responsive > .table {
@@ -5022,7 +5031,7 @@ tbody.collapse.in {
 /* line 96, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_navs.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #fff;
+  background-color: white;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -5115,7 +5124,7 @@ tbody.collapse.in {
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus,
   .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: #fff;
+    border-bottom-color: white;
   }
 }
 
@@ -6149,7 +6158,7 @@ a.badge:hover, a.badge:focus {
   padding: 4px;
   margin-bottom: 20px;
   line-height: 1.42857;
-  background-color: #fff;
+  background-color: white;
   border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: border 0.2s ease-in-out;
@@ -6805,7 +6814,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .panel-body + .table-responsive,
 .panel > .table + .panel-body,
 .panel > .table-responsive + .panel-body {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #8fb8cc;
 }
 /* line 160, ../../../bower/bootstrap-scss/assets/stylesheets/bootstrap/_panels.scss */
 .panel > .table > tbody:first-child > tr:first-child th,
@@ -8172,12 +8181,20 @@ button.close {
     display: none !important;
   }
 }
-/* line 1, ../scss-src/includes/settings.scss */
-a {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+/* line 14, ../scss-src/includes/bootstrap.scss */
+table.table th {
+  font-weight: bold;
+  background-color: #8fb8cc;
+}
+
+/* line 21, ../scss-src/includes/bootstrap.scss */
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  vertical-align: middle;
 }
 
 /* line 1, ../scss-src/includes/settings.scss */
@@ -8253,16 +8270,6 @@ form.ng-invalid button {
   display: none;
 }
 
-/* line 15, ../scss-src/includes/elements.scss */
-.table > thead > tr > th,
-.table > tbody > tr > th,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > td,
-.table > tfoot > tr > td {
-  vertical-align: middle;
-}
-
 /* line 2, ../scss-src/includes/forms.scss */
 .jumbotron h1, .jumbotron h2 {
   margin-top: 0;
@@ -8297,4 +8304,14 @@ ul.navbar-button-bar > li > a input {
   top: 100%;
   background: red;
   border: 1px solid #808080;
+}
+
+/* line 2, ../scss-src/includes/graphs.scss */
+.graph_filters fieldset {
+  margin-left: 2em;
+}
+/* line 5, ../scss-src/includes/graphs.scss */
+.graph_filters fieldset, .graph_filters fieldset label, .graph_filters fieldset select {
+  vertical-align: top;
+  display: inline-block;
 }

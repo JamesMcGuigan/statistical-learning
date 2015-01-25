@@ -5,14 +5,6 @@ var uuid      = require('node-uuid');
 var extend    = require("node.extend");
 var express   = require("express");
 
-//var fs        = require("fs");
-//var markdown  = require("markdown").markdown;
-//var path      = require("path");
-//var unirest   = require('unirest');
-//var url       = require("url");
-//var validator = require("email-validator");
-
-
 module.exports = function(app){
     var renderParams = function(request) {
         request.cookies["uuid"] = request.cookies["uuid"] || uuid.v4();

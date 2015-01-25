@@ -1,5 +1,5 @@
 var async = require('async');
-var module = angular.module('statisticalLearningApp.controllers');
+var module = angular.module('AngularApp.controllers');
 
 module.controller('LoginController',
     function($rootScope, $scope, $routeParams, $http, $timeout, UserService, MongoAPI) {

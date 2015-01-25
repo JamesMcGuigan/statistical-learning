@@ -41,7 +41,7 @@ var CrudMongoAPI = module.exports = {
 
     get: function(request, response) {
         if( CrudMongoAPI.authorize(response, "view", request.params.table) ) {
-            var db = mongojs(config.db, [request.params.table]);
+            var db = mongojs(config.db.data, [request.params.table]);
 
             if( request.params.id ) {
                 db[request.params.table].find( {id: request.params.id}, function(error, docs) {

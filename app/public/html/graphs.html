@@ -1,0 +1,46 @@
+<div class="jumbotron">
+
+    <form class="graph_filters">
+        <fieldset>
+            <label for="curriculum_years">Chart Type: </label>
+            <select id="curriculum_years" multiple>
+                <option value="">--- All ---</option>
+                <option ng-repeat="student_gender in data.filters.student_genders" value="{{student_gender}}" ng-bind="student_gender"></option>
+            </select>
+        </fieldset>
+    </form>
+
+    <form class="graph_filters">
+        <div><strong>Filter By:</strong></div>
+        <fieldset>
+            <label for="curriculum_years">Years: </label>
+            <select id="curriculum_years" multiple>
+                <option value="">--- All ---</option>
+                <option ng-repeat="year in data.filters.currculum_years" value="{{year}}" ng-bind="year"></option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="curriculum_years">Topics: </label>
+            <select id="curriculum_years" multiple>
+                <option value="">--- All ---</option>
+                <option ng-repeat="topic in data.filters.topics" value="{{topic}}" ng-bind="topic"></option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="curriculum_years">Teachers: </label>
+            <select id="curriculum_years" multiple>
+                <option value="">--- All ---</option>
+                <option ng-repeat="teacher_name in data.filters.teacher_names" value="{{teacher_name}}" ng-bind="teacher_name"></option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="curriculum_years">Student Gender: </label>
+            <select id="curriculum_years" multiple>
+                <option value="">--- All ---</option>
+                <option ng-repeat="student_gender in data.filters.student_genders" value="{{student_gender}}" ng-bind="student_gender"></option>
+            </select>
+        </fieldset>
+    </form>
+
+    <!-- Distrabution of Grades -->
+</div>

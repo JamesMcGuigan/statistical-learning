@@ -1,6 +1,6 @@
 var async = require("async");
 
-angular.module('statisticalLearningApp.directives')
+angular.module('AngularApp.directives')
     .directive('navbar', function($rootScope, $http, $location, $timeout, UserService) {
         return {
             restrict:    "E",

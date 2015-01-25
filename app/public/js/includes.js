@@ -22,23 +22,23 @@
 $script([
     '/vendor/firebugx/firebugx.js',
     '/vendor/polyfills/storage.js',
-    '/bower/fastclick/lib/fastclick.js',
-
+    //'/bower/fastclick/lib/fastclick.js',
     '/bower/jquery-legacy/jquery.js',
-    '/bower/underscore/underscore.js',
     '/bower/lodash/dist/lodash.js',
     '/bower/datejs/build/date-en-GB.js',
     '/bower/angular/angular.js',
     '/bower/d3/d3.js',
-    '/vendor/browserify.js'
-    // '/bower/array-generics/array.generics.js',
+    '/vendor/browserify.js',
+    '/bower/array-generics/array.generics.js'
     // '/bower/es5-shim/es5-shim.js', // breaks broswerify:github-flavoured-markdown
 ], function() {
     $script([
-        '/bower/es6-shim/es6-shim.js',               // depends es5-shim.js
-        '/bower/bootstrap-css/js/bootstrap.js',      // depends jQuery
-        '/bower/d3.chart/d3.chart.js',               // depends d3
-        '/bower/angulartics/dist/angulartics.min.js' // depends angular
+        '/bower/c3/c3.js',
+        '/bower/es6-shim/es6-shim.js',                      // depends es5-shim.js
+        '/bower/bootstrap-css/js/bootstrap.js',             // depends jQuery
+        '/bower/angular-tablesort/js/angular-tablesort.js'  // depends angular
+        //'/bower/angulartics/dist/angulartics.min.js'      // depends angular
+        //'/bower/d3.chart/d3.chart.js',                    // depends d3
         //'/bower/highcharts-release/highcharts.js',
         //'/bower/jquery-equal-height/af.equal-height.js',
         //'/bower/jquery-or/js/jquery.or.js'
@@ -46,9 +46,9 @@ $script([
         //'/bower/jquery-placeholder/jquery.placeholder.js'
     ], function() {
         $script([
-            '/bower/angulartics/dist/angulartics-ga.min.js',  // depends angulartics
+            //'/bower/angulartics/dist/angulartics-ga.min.js',  // depends angulartics
             '/bower/angular-route/angular-route.js',
-            '/bower/angular-i18n/angular-locale_en-gb.js',
+            //'/bower/angular-i18n/angular-locale_en-gb.js',
             '/bower/angular-resource/angular-resource.js',
             '/bower/ng-prettyjson/src/ng-prettyjson.js',
             '/bower/ngstorage/ngStorage.js'
@@ -58,13 +58,15 @@ $script([
                 '/angular/app.js'
             ], function() {
                 $script([
-                    '/angular/controller/controller.edit.js',
-                    '/angular/controller/controller.list.js',
+                    //'/angular/controller/controller.edit.js',
+                    //'/angular/controller/controller.list.js',
                     '/angular/controller/controller.login.js',
-                    '/angular/directive/directive.infographic.js',
-                    '/angular/directive/directive.infographic.static.js',
-                    '/angular/directive/directive.json-editor.js',
-                    '/angular/directive/directive.markdown.js',
+                    '/angular/controller/controller.graph.js',
+                    '/angular/controller/controller.table.js',
+                    //'/angular/directive/directive.infographic.js',
+                    //'/angular/directive/directive.infographic.static.js',
+                    //'/angular/directive/directive.json-editor.js',
+                    //'/angular/directive/directive.markdown.js',
                     '/angular/directive/directive.navbar.js',
                     '/angular/services/service.util.js',
                     '/angular/services/service.user.js',

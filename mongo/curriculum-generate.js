@@ -1,14 +1,17 @@
+#!/usr/bin/env node
 // Data Sources
 // Curriculum: https://docs.google.com/spreadsheets/d/1pq0lgAcM1-yZHU5DwZQZjOk1DVlCSMim6csqdDB-3tk/edit#gid=616296061
 // Names       http://deron.meranda.us/data/
 
-//var _        = require('lodash');
+process.chdir(__dirname);
+
 var _        = require('lodash-contrib');
 var async    = require("async");
 var mongojs  = require("mongojs");
 var exec     = require('child_process').exec;
 var execSync = require("exec-sync");
 var fs       = require('fs');
+var extend   = require('node.extend');
 var uuid     = require('uuid');
 
 
@@ -19,8 +22,7 @@ var names = {
     generated:    []
 };
 
-// Code
-process.chdir(__dirname);
+
 
 
 var lookup = {
@@ -57,6 +59,8 @@ async.waterfall([
         //    "curriculum_year" : "3rd grade (U.S.)"
         //}
 
+        db.collection('curriculum').ensureIndex( { "curriculum_year": 1 } )
+        db.collection('curriculum').ensureIndex( { "quiz_name": 1 } )
         next();
     },
     function(next) {
@@ -94,6 +98,10 @@ async.waterfall([
                 console.log("curriculum-generate.js:87:", "teacher", teacher)
             }
         });
+        db.collection('teachers').ensureIndex( { "teacher_name":    1 } )
+        db.collection('teachers').ensureIndex( { "teacher_gender":  1 } )
+        db.collection('teachers').ensureIndex( { "curriculum_year": 1 } )
+
         db.collection('teachers').insert(lookup.teachers, function() {
             next();
         })
@@ -119,6 +127,10 @@ async.waterfall([
                 console.log("curriculum-generate.js:112:", "student", student)
             }
         });
+        db.collection('students').ensureIndex( { "student_name":    1 } )
+        db.collection('students').ensureIndex( { "student_gender":  1 } )
+        db.collection('students').ensureIndex( { "curriculum_year": 1 } )
+
         db.collection('students').insert(lookup.students, function() {
             next();
         })
@@ -137,7 +149,7 @@ async.waterfall([
 
                 for(var i=1; i<=10; i++) {
                     var question = {
-                        uuid: uuid.v4(),
+                        uuid:             "Q"+i, // uuid.v4(),
                         quiz_name:        quiz.quiz_name,
                         question_text:    "Q"+i,
                         question_options: ["A","B","C","D","E","F"],
@@ -150,6 +162,10 @@ async.waterfall([
 
                 console.log("curriculum-generate.js:144:", "quiz", quiz)
             });
+
+            db.collection('quizes').ensureIndex( { "uuid":       1 } )
+            db.collection('quizes').ensureIndex( { "quiz_name":  1 } )
+
             db.collection('quizes').insert(lookup.quizes, function() {
                 next();
             })
@@ -187,6 +203,8 @@ async.waterfall([
             _(lookup.quizes).where({ curriculum_year: student.curriculum_year }).forEach(function(quiz) {
                 var quiz_submission = {
                     quiz_name:          quiz.quiz_name,
+                    student_name:       student.student_name,
+                    teacher_name:       quiz.teacher_name,
                     submission_answers: {},
                     submission_marks:   {},
                     submission_score:   0
@@ -203,11 +221,75 @@ async.waterfall([
                 });
             });
         });
+
+        db.collection('quiz_submissions').ensureIndex( { "quiz_name":         1 } )
+        db.collection('quiz_submissions').ensureIndex( { "student_name":      1 } )
+        db.collection('quiz_submissions').ensureIndex( { "teacher_name":      1 } )
+        db.collection('quiz_submissions').ensureIndex( { "submission_score":  1 } )
+
         var setIntervalID = setInterval(function() {
             if( dirty_inserts === 0 ) {
                 clearInterval(setIntervalID);
                 next();
             }
+        })
+    },
+    function(next) {
+        var denormalized = [];
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "quiz_name":        1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "student_name":     1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "teacher_name":     1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "submission_score": 1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "curriculum_year":  1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "student_gender":   1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "teacher_gender":   1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "subject":          1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "topic":            1 } );
+        db.collection('quiz_submissions_denormalized').ensureIndex( { "lesson":           1 } );
+
+
+        db.collection('quiz_submissions').find(function (error, quiz_submissions) {
+            denormalized = quiz_submissions;
+            async.eachLimit(denormalized, 10, function (denormalized_row, denormalized_each_next) {
+                var original_denormalized_row = extend({}, denormalized_row);
+                async.series([
+                    function(series_next) {
+                        db.collection('curriculum').findOne({quiz_name: denormalized_row.quiz_name}, function (error, curriculum) {
+                            extend(denormalized_row, curriculum);
+                            series_next();
+                        });
+                    },
+                    function(series_next) {
+                        db.collection('quizzes').findOne({quiz_name: denormalized_row.quiz_name}, function (error, quiz) {
+                            extend(denormalized_row, quiz);
+                            series_next();
+                        });
+                    },
+                    function(series_next) {
+                        db.collection('students').findOne({student_name: denormalized_row.student_name}, function (error, student) {
+                            extend(denormalized_row, student);
+                            series_next();
+                        });
+                    },
+                    function(series_next) {
+                        db.collection('teachers').findOne({teacher_name: denormalized_row.teacher_name}, function (error, teacher) {
+                            extend(denormalized_row, teacher);
+                            series_next();
+                        });
+                    }
+                ], function() {
+                    // END async.parallel
+                    extend(denormalized_row, original_denormalized_row);
+                    delete denormalized_row._id;
+                    db.collection('quiz_submissions_denormalized').insert(denormalized_row, function() {
+                        console.log("curriculum-generate.js:250:", "denormalized_row", denormalized_row)
+                        denormalized_each_next();
+                    });
+                });
+            }, function() {
+                // END async.each(denormalized)
+                next();
+            });
         })
     }
 ], function() {

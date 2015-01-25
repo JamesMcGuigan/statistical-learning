@@ -8,7 +8,7 @@ var crypto    = require('crypto');
 var uuid      = require('node-uuid');
 var extend    = require('node.extend');
 
-var db = mongojs(config.db, ['passwd','users']);
+var db = mongojs(config.db.users, ['passwd','users']);
 var UserAPI = module.exports = {
     /**
      *

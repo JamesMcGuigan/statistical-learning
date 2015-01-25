@@ -16,18 +16,18 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.3.8",
-    "angular-i18n": "1.3.8",
-    "angular-resource": "1.3.8",
-    "angular-route": "1.3.8",
+    "angular":          "1.2.16",
+    "angular-i18n":     "1.2.16",
+    "angular-resource": "1.2.16",
+    "angular-route":    "1.2.16",
     "angulartics": "*",
+    "ng-prettyjson": "*",
     "array-generics": "plusdude/array-generics",
     "bootstrap-css": "*",
     "bootstrap-scss": "twbs/bootstrap-sass",
     "css3pie": "*",
-    "d3": "3.5.3",
-    "d3.chart": "*",
-    "d3.chart.base": "*",
+    "c3": "0.4.8",
+    "d3": "3.4.13",
     "datejs": "*",
     "es5-shim": "*",
     "es6-shim": "*",
@@ -40,8 +40,8 @@
     "jquery-legacy": "jquery#1.10",
     "jquery-or": "byrichardpowell/jquery-or",
     "jquery-placeholder": "*",
+    "angular-tablesort": "*",
     "modernizr": "*",
-    "ng-prettyjson": "*",
     "ngstorage": "*",
     "nwmatcher": "*",
     "selectivizr": "*",
@@ -56,6 +56,8 @@
     "iepngfix": "http://www.twinhelix.com/css/iepngfix/iepngfix.zip"
   },
   "unload": {
+    "d3.chart": "*",
+    "d3.chart.base": "*",
     "angular": "*",
     "foundation-5": "foundation#5",
     "foundation-3": "http://foundation.zurb.com/cdn/releases/foundation-3.2.5.zip",
@@ -87,6 +89,6 @@
   "private": false,
   "resolutions": {
     "angular": ">=1.0.8",
-    "d3": "~3.3.11"
+    "d3": "~3.4.4"
   }
 }

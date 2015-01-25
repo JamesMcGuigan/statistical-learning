@@ -8,7 +8,11 @@ var config = {
     error_log:  '/var/log/node/infographic-error.log',
     debug_log:  '/var/log/node/infographic-debug.log',
 
-    db:      'mongodb://localhost/statistical-learning',
+    db: {
+        users: "mongodb://localhost/statistical-learning",
+        data:  "mongodb://localhost/curriculum"
+    },
+
     crudPermissions: {
         edit: ["infographics"],
         view: ["infographics"]

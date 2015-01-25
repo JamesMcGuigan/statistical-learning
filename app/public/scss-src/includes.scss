@@ -1,11 +1,17 @@
 @import "compass/reset";
 @import "compass/css3";
-@import "../../../bower/github-markdown-css/github-markdown.css";
-@import "../../../bower/bootstrap-scss/assets/stylesheets/_bootstrap.scss";
+
+
+@import "../../../bower/c3/c3.css";
+@import "../../../bower/angular-tablesort/tablesort.css";
+
 @import "includes/settings";
+@import "includes/bootstrap";
+
 //@import "../img/sprite/sprite";
 @import "includes/ie";
 @import "includes/elements";
 @import "includes/forms";
 @import "includes/navbar";
+@import "includes/graphs";
 

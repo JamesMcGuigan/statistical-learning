@@ -1,0 +1,43 @@
+$body-bg:              white;
+$table-bg:             #e5f6ff; // HSV(200,10,100)
+$table-bg-accent:      #d9f2ff; // HSV(200,15,100)
+$table-bg-hover:       #cceeff; // HSV(200,20,100)
+$table-bg-head:        #8fb8cc; // HSV(200,30,80)
+$table-bg-head-sorted: #8ac7e6; // HSV(200,50,80)
+$table-border-color: $table-bg-head;
+
+
+@import "../../../bower/bootstrap-scss/assets/stylesheets/_bootstrap.scss";
+
+
+table.table {
+  th {
+    font-weight: bold;
+    background-color: $table-bg-head;
+  }
+}
+
+// boostrap.css (line 2071)
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+//table.tablesorter thead tr .header {
+//  background-image: url(../../../../vendor/tablesorter/themes/blue/bg.gif);
+//  background-repeat:   no-repeat;
+//  background-position: center right;
+//  cursor: pointer;
+//}
+//table.tablesorter thead tr .headerSortUp {
+//  background-image: url(../../../../vendor/tablesorter/themes/blue/asc.gif);
+//  background-color: $table-bg-head-sorted;
+//}
+//table.tablesorter thead tr .headerSortDown {
+//  background-image: url(../../../../vendor/tablesorter/themes/blue/desc.gif);
+//  background-color: $table-bg-head-sorted;
+//}

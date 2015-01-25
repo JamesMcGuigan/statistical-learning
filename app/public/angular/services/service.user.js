@@ -1,4 +1,4 @@
-angular.module('statisticalLearningApp.services')
+angular.module('AngularApp.services')
     .factory("UserService", function($rootScope, $http) {
         var UserService = {
             init: function() {

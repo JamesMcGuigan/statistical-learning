@@ -93,10 +93,11 @@ app.use('/README.md',   express.static(__dirname + '/README.md'));
 
 app.use(connectDomain()); // allow express to output propper stack traces
 
-require('./app/server/routes/pageRoutes.js')(app);
-require('./app/server/routes/APIRoutes.js')(app);
+require('./app/server/routes/PageRoutes.js')(app);
+require('./app/server/routes/CrudAPIRoutes.js')(app);
 require('./app/server/routes/UserAPIRoutes.js')(app);
-//require('./app/server/routes/errorRoutes.js')(app);
+require('./app/server/routes/DataAPI.js')(app);
+//require('./app/server/routes/ErrorRoutes.js')(app);
 
 
 // Error Handling

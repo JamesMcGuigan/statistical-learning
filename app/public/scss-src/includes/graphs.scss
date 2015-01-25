@@ -1,0 +1,10 @@
+.graph_filters {
+  fieldset {
+    margin-left: 2em;
+
+    &, label, select {
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+}
