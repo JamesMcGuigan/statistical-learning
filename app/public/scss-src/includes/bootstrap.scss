@@ -3,7 +3,7 @@ $table-bg:             #e5f6ff; // HSV(200,10,100)
 $table-bg-accent:      #d9f2ff; // HSV(200,15,100)
 $table-bg-hover:       #cceeff; // HSV(200,20,100)
 $table-bg-head:        #8fb8cc; // HSV(200,30,80)
-$table-bg-head-sorted: #8ac7e6; // HSV(200,50,80)
+$table-bg-head-sorted: #66abcc; // HSV(200,50,80)
 $table-border-color: $table-bg-head;
 
 
@@ -14,6 +14,11 @@ table.table {
   th {
     font-weight: bold;
     background-color: $table-bg-head;
+
+    &.tablesort-desc,
+    &.tablesort-asc {
+      background-color: $table-bg-head-sorted;
+    }
   }
 }
 
