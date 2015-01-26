@@ -90,7 +90,10 @@ async.waterfall([
                 var teacher = {
                     "teacher_name":    name,
                     "teacher_gender":  gender,
-                    "curriculum_year": year
+                    "curriculum_year": year,
+                    "p": {
+                        "teacher": Math.random()+0.5
+                    }
                 };
                 lookup.teachers.push(teacher);
                 names.generated.push(name);
@@ -119,7 +122,10 @@ async.waterfall([
                 var student = {
                     "student_name":    name,
                     "student_gender":  gender,
-                    "curriculum_year": teacher.curriculum_year
+                    "curriculum_year": teacher.curriculum_year,
+                    "p": {
+                        "student": Math.random()*2
+                    }
                 };
                 lookup.students.push(student);
                 names.generated.push(name);
@@ -144,7 +150,11 @@ async.waterfall([
                     "quiz_name":       curriculum.quiz_name,
                     "teacher_name":    teacher.teacher_name,
                     "curriculum_year": curriculum.curriculum_year,
-                    "questions":       {}
+                    "questions":       {},
+                    "p": {
+                        "teacher": teacher.p.teacher,
+                        "quiz":    Math.random()+0.5
+                    }
                 }
 
                 for(var i=1; i<=10; i++) {
@@ -154,7 +164,7 @@ async.waterfall([
                         question_text:    "Q"+i,
                         question_options: ["A","B","C","D","E","F"],
                         question_answer:  _.sample(["A","B","C","D","E","F"])
-                    }
+                    };
 
                     quiz.questions[question.uuid] = question;
                 }
@@ -174,10 +184,21 @@ async.waterfall([
     function(next) {
         var answer_quiz_submission = function(quiz_submission, quiz) {
             _.forEach(quiz.questions, function(question) {
-                if( Math.random() > 0.5 ) {
+                if( quiz_submission.p_total * Math.random() > 0.5 ) {
+                    // Guess Correctly
                     quiz_submission.submission_answers[question.uuid] = question.question_answer;
                 } else {
-                    quiz_submission.submission_answers[question.uuid] = _.sample(question.question_options);
+                    // Guess sequentially A, B, C, D, E, F, G
+                    for( var i=0, n=question.question_options.length; i<n; i++ ) {
+                        if( Math.random() > 2/n ) {
+                            quiz_submission.submission_answers[question.uuid] = question.question_options[i];
+                            break;
+                        }
+                    }
+                    // Backup Guess randomly A, B, C, D, E, F, G
+                    if( !quiz_submission.submission_answers[question.uuid] ) {
+                        quiz_submission.submission_answers[question.uuid] = _.sample(question.question_options);
+                    }
                 }
             })
         };
@@ -207,8 +228,18 @@ async.waterfall([
                     teacher_name:       quiz.teacher_name,
                     submission_answers: {},
                     submission_marks:   {},
-                    submission_score:   0
+                    submission_score:   0,
+                    p: {
+                        student: student.p.student,
+                        teacher: quiz.p.teacher,
+                        quiz:    quiz.p.quiz
+                    },
+                    p_total: 1
                 };
+                for( var key in quiz_submission.p ) {
+                    quiz_submission.p_total = quiz_submission.p_total * quiz_submission.p[key];
+                }
+
                 answer_quiz_submission(quiz_submission, quiz);
                 mark_quiz_submission(quiz_submission, quiz)
 
@@ -251,35 +282,35 @@ async.waterfall([
         db.collection('quiz_submissions').find(function (error, quiz_submissions) {
             denormalized = quiz_submissions;
             async.eachLimit(denormalized, 10, function (denormalized_row, denormalized_each_next) {
-                var original_denormalized_row = extend({}, denormalized_row);
+                var original_denormalized_row = extend(true, {}, denormalized_row);
                 async.series([
                     function(series_next) {
                         db.collection('curriculum').findOne({quiz_name: denormalized_row.quiz_name}, function (error, curriculum) {
-                            extend(denormalized_row, curriculum);
+                            extend(true, denormalized_row, curriculum);
                             series_next();
                         });
                     },
                     function(series_next) {
                         db.collection('quizzes').findOne({quiz_name: denormalized_row.quiz_name}, function (error, quiz) {
-                            extend(denormalized_row, quiz);
+                            extend(true, denormalized_row, quiz);
                             series_next();
                         });
                     },
                     function(series_next) {
                         db.collection('students').findOne({student_name: denormalized_row.student_name}, function (error, student) {
-                            extend(denormalized_row, student);
+                            extend(true, denormalized_row, student);
                             series_next();
                         });
                     },
                     function(series_next) {
                         db.collection('teachers').findOne({teacher_name: denormalized_row.teacher_name}, function (error, teacher) {
-                            extend(denormalized_row, teacher);
+                            extend(true, denormalized_row, teacher);
                             series_next();
                         });
                     }
                 ], function() {
                     // END async.parallel
-                    extend(denormalized_row, original_denormalized_row);
+                    extend(true, denormalized_row, original_denormalized_row);
                     delete denormalized_row._id;
                     db.collection('quiz_submissions_denormalized').insert(denormalized_row, function() {
                         console.log("curriculum-generate.js:250:", "denormalized_row", denormalized_row)
