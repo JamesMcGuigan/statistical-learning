@@ -8,7 +8,8 @@ mkdir -p   ./production
 
 
 # compile /production/scss/
-compass compile -e production --force
+compass compile -e development --force
+compass compile -e production  --force
 
 # compile /vendor/browserify.js
 node ./compile_browserify.js
