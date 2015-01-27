@@ -1,6 +1,6 @@
 angular.module('AngularApp.routes',['ngRoute']).config(["$routeProvider",
     function($routeProvider) {
-        //$routeProvider.otherwise({ redirectTo: "/graphs" });
+        $routeProvider.otherwise({ redirectTo: "/tables" });
         $routeProvider.when("/login",     { templateUrl: "html/login.html",    controller: "LoginController" });
         $routeProvider.when("/register",  { templateUrl: "html/register.html", controller: "LoginController" });
 
@@ -16,7 +16,7 @@ angular.module('AngularApp.routes',['ngRoute']).config(["$routeProvider",
         //$routeProvider.when("/teacher/", { templateUrl: "html/quiz/list.html", controller: "QuizListController" });
         //$routeProvider.when("/edit/:id", { templateUrl: "html/edit.html", controller: "EditController" });
 
-        $routeProvider.when("/graphs", { templateUrl: "html/graphs.html", controller: "GraphController" });
+        //$routeProvider.when("/graphs", { templateUrl: "html/graphs.html", controller: "GraphController" });
         $routeProvider.when("/tables", { templateUrl: "html/tables.html", controller: "TableController" });
     }
 ]);
