@@ -1,5 +1,5 @@
 var config    = require('../config/config.js')[process.env.NODE_ENV];
-var _         = require("underscore");
+var _         = require("lodash");
 var async     = require('async');
 var uuid      = require('node-uuid');
 var extend    = require("node.extend");

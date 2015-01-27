@@ -1,4 +1,4 @@
-var _         = require("underscore");
+var _         = require("lodash");
 var assert    = require("assert");
 var config    = require('../config/config.js')[process.env.NODE_ENV];
 var async     = require("async");

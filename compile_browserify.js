@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var exec    = require('child_process').exec;
-var _       = require('underscore');
+var _       = require('lodash');
 var package = require('./package.json');
                                                          
  
