@@ -40,13 +40,13 @@ module.controller('TableController', function($scope, $http) {
                     x:    "count",
                     resolution: 200,
                     c3: { bar: { width: { ratio: 1 } } }
-                },
-                scatter_count_avg: {
-                    name: "Scatter Plot of Tests Graded vs Scores",
-                    type: "histogram",
-                    x:    "avg",
-                    y:    "count"
                 }
+                //scatter_count_avg: {
+                //    name: "Scatter Plot of Tests Graded vs Scores",
+                //    type: "scatter",
+                //    x:    "avg",
+                //    y:    "count"
+                //}
             }
         },
         league_table_students: {
