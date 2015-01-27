@@ -1,7 +1,7 @@
 Statistical Learning
 =====================
 
-Proof of concept demonstration for generating custom infographics, built in javascript using node.js, angular.js, d3.js and GraphicsMagick.
+Proof of concept demonstration for generating statistical graphs based on educational datasets, built in javascript using the MEAN stack (mongo, express, angular, node), plus d3.js/c3.js
 
 - http://statistical-learning.jamesmcguigan.com - live demo with unminified sources
 - https://production.statistical-learning.jamesmcguigan.com - live SSL demo with minified js/css
@@ -35,8 +35,8 @@ https://github.com/JamesMcGuigan/puppet-config
 Project Layout
 ==============
 
-- [/app/config/config.js](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/config/config.js) - Node configuration file
-- [/app/controllers/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/controllers/) - Node API logic
+- [/app/server/config/config.js](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/server/config/config.js) - Node configuration file
+- [/app/server/controllers/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/server/controllers/) - Node API logic
 - [/app/server/routes/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/server/routes/) - Node URL routing
 - [/app/server/views/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/server/views/) - Mustache templates for generating initial HTML page
 - [/app/public/scss-src/](https://github.com/JamesMcGuigan/statistical-learning/tree/master/app/public/scss-src/) - SASS source files
