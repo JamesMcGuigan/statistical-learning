@@ -42,7 +42,7 @@ var access_log_stream = fs.createWriteStream(config.access_log, {flags: 'a'});
 var error_log_stream  = fs.createWriteStream(config.error_log,  {flags: 'a'});
 
 // Basic Auth
-app.use("/", basicAuth(config.basicAuth.user,config.basicAuth.pass));
+//app.use("/", basicAuth(config.basicAuth.user,config.basicAuth.pass));
 
 // Logging
 if( ["staging","production"].indexOf(process.env.NODE_ENV) != -1 ) {

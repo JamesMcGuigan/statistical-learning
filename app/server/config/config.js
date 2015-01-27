@@ -4,9 +4,9 @@ var extend = require("node.extend");
 
 var config = {
     name: 'Statistical Learning',
-    access_log: '/var/log/node/infographic-access.log',
-    error_log:  '/var/log/node/infographic-error.log',
-    debug_log:  '/var/log/node/infographic-debug.log',
+    access_log: '/var/log/node/statistical-learning-access.log',
+    error_log:  '/var/log/node/statistical-learning-error.log',
+    debug_log:  '/var/log/node/statistical-learning-debug.log',
 
     db: {
         users: "mongodb://localhost/statistical-learning",
@@ -14,8 +14,8 @@ var config = {
     },
 
     crudPermissions: {
-        edit: ["infographics"],
-        view: ["infographics"]
+        edit: ["statistical-learning"],
+        view: ["statistical-learning"]
     },
 
     web: {
@@ -27,8 +27,8 @@ var config = {
     },
 
     sslcert: {
-        key:  fs.readFileSync(path.join(__dirname, '../../sslcert/san/infographic.san.key'), 'utf8'),
-        cert: fs.readFileSync(path.join(__dirname, '../../sslcert/san/infographic.san.crt'), 'utf8')
+        key:  fs.readFileSync(path.join(__dirname, '../../sslcert/san/statistical-learning.san.key'), 'utf8'),
+        cert: fs.readFileSync(path.join(__dirname, '../../sslcert/san/statistical-learning.san.crt'), 'utf8')
     },
     basicAuth: {
         realm: "Statistical Learning",
@@ -65,7 +65,10 @@ var config = {
 
 module.exports = {
     test: extend(true, {}, config, {
-        db: 'mongodb://localhost/infographicdb-test',
+        db: {
+            users: "mongodb://localhost/statistical-learning-test",
+            data:  "mongodb://localhost/curriculum-test"
+        },
         web: {
             host: "http://localhost:4400",
             port: {
@@ -84,22 +87,20 @@ module.exports = {
         }
     }),
     staging: extend(true, {}, config, {
-        db: 'mongodb://infographic.staging.infographic.jamesmcguigan.com/infographicdb',
         web: {
-            host: "http://staging.infographic.jamesmcguigan.com",
+            host: "http://staging.statistical-learning.jamesmcguigan.com",
             port: {
-                http:  4000,
-                https: 4001
+                http:  3005,
+                https: 3006
             }
         }
     }),
     production:  extend(true, {}, config, {
-        db: 'mongodb://infographic.jamesmcguigan.com/infographicdb',
         web: {
-            host: "http://infographic.jamesmcguigan.com",
+            host: "http://statistical-learning.jamesmcguigan.com",
             port: {
-                http:  4000,
-                https: 4001
+                http:  3005,
+                https: 3006
             }
         }
     })
