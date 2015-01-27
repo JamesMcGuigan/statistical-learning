@@ -90,8 +90,8 @@ module.exports = {
         web: {
             host: "http://staging.statistical-learning.jamesmcguigan.com",
             port: {
-                http:  3005,
-                https: 3006
+                http:  3020,
+                https: 3021
             }
         }
     }),
@@ -99,8 +99,8 @@ module.exports = {
         web: {
             host: "http://statistical-learning.jamesmcguigan.com",
             port: {
-                http:  3005,
-                https: 3006
+                http:  3022,
+                https: 3023
             }
         }
     })
