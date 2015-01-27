@@ -32,7 +32,7 @@
     {{> includes/google-analyitics-infographic }}
 </head>
 <body lang="{{lang}}">
-    {{ partials/forkmegithub }}
+    {{> partials/forkmegithub }}
 
     <div class="container">
         <div class="template-header">
