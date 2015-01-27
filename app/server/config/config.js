@@ -27,8 +27,8 @@ var config = {
     },
 
     sslcert: {
-        key:  fs.readFileSync(path.join(__dirname, '../../sslcert/san/statistical-learning.san.key'), 'utf8'),
-        cert: fs.readFileSync(path.join(__dirname, '../../sslcert/san/statistical-learning.san.crt'), 'utf8')
+        key:  fs.readFileSync(path.join(__dirname, '../../../sslcert/san/statistical-learning.san.key'), 'utf8'),
+        cert: fs.readFileSync(path.join(__dirname, '../../../sslcert/san/statistical-learning.san.crt'), 'utf8')
     },
     basicAuth: {
         realm: "Statistical Learning",
