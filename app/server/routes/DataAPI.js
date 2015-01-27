@@ -87,25 +87,25 @@ module.exports = function(app) {
                     async.series([
                         function(series_next) {
                             db.collection('curriculum').findOne({quiz_name: denormalized_row.quiz_name}, function (error, curriculum) {
-                                extend(denormalized_row, curriculum);
+                                extend(true, denormalized_row, curriculum);
                                 series_next();
                             });
                         },
                         function(series_next) {
                             db.collection('quizzes').findOne({quiz_name: denormalized_row.quiz_name}, function (error, quiz) {
-                                extend(denormalized_row, quiz);
+                                extend(true, denormalized_row, quiz);
                                 series_next();
                             });
                         },
                         function(series_next) {
                             db.collection('students').findOne({student_name: denormalized_row.student_name}, function (error, student) {
-                                extend(denormalized_row, student);
+                                extend(true, denormalized_row, student);
                                 series_next();
                             });
                         },
                         function(series_next) {
                             db.collection('teachers').findOne({teacher_name: denormalized_row.teacher_name}, function (error, teacher) {
-                                extend(denormalized_row, teacher);
+                                extend(true, denormalized_row, teacher);
                                 series_next();
                             });
                         }

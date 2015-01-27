@@ -5,7 +5,7 @@ angular.module('AngularApp.directives')
         return {
             restrict:    "E",
             replace:     true,
-            templateUrl: "html/partial/navbar.html",
+            templateUrl: "html/widgets/navbar.html",
             link: function ($rootScope, scope, element, attrs) {
                 scope.init = function() {
                     // $rootScope.user;

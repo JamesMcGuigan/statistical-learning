@@ -1,21 +1,33 @@
 <div class="jumbotron">
 
     <p>
-        <b>Select Chart Type</b>
-        <select ng-model="state.chart_selected" ng-options="table.id as table.name for (id, table) in data.tables" ng-change="load(state.chart_selected)">
+        <b>Select Data Source:</b>
+        <select ng-model="state.query_id" ng-options="id as table.name for (id, table) in layouts" ng-change="load(state.query_id)">
             <!--<option value="">--- Select ---</option>-->
         </select>
     </p>
 
+    <p>
+        <b>Select Chart Type:</b>
+        <select ng-model="state.chart_type" ng-options="id as chart.name for (id, chart) in layouts[state.query_id].charts">
+            <option value="">--- Select ---</option>
+        </select>
+    </p>
+
+    <chart data="data.charts[state.query_id]"
+           layout="layouts[state.query_id]"
+           chart-layout="layouts[state.query_id].charts[state.chart_type]"
+    ></chart>
+
     <table class="table table-striped table-bordered table-hover" ts-wrapper>
         <thead>
             <tr>
-                <th ng-repeat="(field_id, field_name) in data.tables[state.chart_selected].fields" ng-bind="field_name" ts-criteria="{{field_id}}"></th>
+                <th ng-repeat="(field_id, field_name) in layouts[state.query_id].fields" ng-bind="field_name" ts-criteria="{{field_id}}"></th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="row in data.charts[state.chart_selected]" ts-repeat>
-                <td ng-repeat="(field_id, field_name) in data.tables[state.chart_selected].fields" ng-bind="row[field_id]"></td>
+            <tr ng-repeat="row in data.charts[state.query_id]" ts-repeat>
+                <td ng-repeat="(field_id, field_name) in layouts[state.query_id].fields" ng-bind="row[field_id]"></td>
             </tr>
         </tbody>
     </table>

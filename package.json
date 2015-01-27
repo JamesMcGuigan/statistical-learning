@@ -80,8 +80,9 @@
     "ng-annotate": "*"
   },
   "browserify": {
-    "async":                    "*",
-    "node.extend":              "*"
+    "async":       "*",
+    "uuid":        "*",
+    "node.extend": "*"
   },
   "global": {
     "nodemon":    "*",
