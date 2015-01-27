@@ -32,7 +32,7 @@ module.controller('TableController', function($scope, $http) {
                     min:     0,
                     max:     1,
                     resolution: 0.05,
-                    c3: { bar: { width: { ratio: 0.5 } } }
+                    c3: { bar: { width: { ratio: 0.35 } } }
                 },
                 histogram_count: {
                     name: "Histogram of Number of Tests Graded",
@@ -67,14 +67,14 @@ module.controller('TableController', function($scope, $http) {
                     min: 0,
                     max: 1,
                     resolution: 0.05,
-                    c3: {bar: {width: {ratio: 0.8}}}
+                    c3: {bar: {width: {ratio: 0.85}}}
                 },
                 histogram_count: {
                     name: "Histogram of Number of Tests Taken",
                     type: "histogram",
                     x: "count",
                     resolution: 5,
-                    c3: {bar: {width: {ratio: 1}}}
+                    c3: {bar: {width: {ratio: 0.55}}}
                 }
             }
         }
