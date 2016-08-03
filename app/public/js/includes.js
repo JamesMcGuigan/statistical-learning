@@ -37,11 +37,10 @@ $script([
         '/bower/es6-shim/es6-shim.js',                      // depends es5-shim.js
         '/bower/bootstrap-css/js/bootstrap.js',             // depends jQuery
         '/bower/angular-tablesort/js/angular-tablesort.js', // depends angular
-        '/bower/angulartics/dist/angulartics.min.js',       // depends angular
-        '/bower/lodash-contrib/dist/lodash-contrib.js'      // depends lodash
+        '/bower/angulartics/dist/angulartics.min.js'        // depends angular
     ], function() {
         $script([
-            '/bower/angulartics/dist/angulartics-ga.min.js',  // depends angulartics
+            '/bower/angulartics-google-analytics/dist/angulartics-ga.min.js',  // depends angulartics
             '/bower/angular-route/angular-route.js',
             '/bower/angular-i18n/angular-locale_en-gb.js',
             '/bower/angular-resource/angular-resource.js',
