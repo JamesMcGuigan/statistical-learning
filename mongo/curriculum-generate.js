@@ -33,10 +33,10 @@ var lookup = {
     curriculum_years: [],
     teachers:         []
 };
-var db = mongojs('mongodb://localhost/curriculum');
+var db = mongojs('mongodb://localhost/curriculum', ['curriculum']);
 async.waterfall([
     function(next) {
-        db.dropDatabase("curriculum", function() {
+        db.dropDatabase(function() {
             next();
         });
     },
@@ -64,7 +64,7 @@ async.waterfall([
         next();
     },
     function(next) {
-        db.collection('curriculum').distinct("curriculum_year", function(error, rows) {
+        db.collection('curriculum').distinct("curriculum_year", {}, function(error, rows) {
             lookup.curriculum_years = rows;
             console.log("curriculum-generate.js:58:", "lookup.curriculum_years", lookup.curriculum_years);
             next();
@@ -101,9 +101,9 @@ async.waterfall([
                 console.log("curriculum-generate.js:87:", "teacher", teacher)
             }
         });
-        db.collection('teachers').ensureIndex( { "teacher_name":    1 } )
-        db.collection('teachers').ensureIndex( { "teacher_gender":  1 } )
-        db.collection('teachers').ensureIndex( { "curriculum_year": 1 } )
+        db.collection('teachers').ensureIndex( { "teacher_name":    1 } );
+        db.collection('teachers').ensureIndex( { "teacher_gender":  1 } );
+        db.collection('teachers').ensureIndex( { "curriculum_year": 1 } );
 
         db.collection('teachers').insert(lookup.teachers, function() {
             next();
@@ -133,9 +133,9 @@ async.waterfall([
                 console.log("curriculum-generate.js:112:", "student", student)
             }
         });
-        db.collection('students').ensureIndex( { "student_name":    1 } )
-        db.collection('students').ensureIndex( { "student_gender":  1 } )
-        db.collection('students').ensureIndex( { "curriculum_year": 1 } )
+        db.collection('students').ensureIndex( { "student_name":    1 } );
+        db.collection('students').ensureIndex( { "student_gender":  1 } );
+        db.collection('students').ensureIndex( { "curriculum_year": 1 } );
 
         db.collection('students').insert(lookup.students, function() {
             next();
@@ -325,4 +325,4 @@ async.waterfall([
     }
 ], function() {
     process.exit();
-})
+});
