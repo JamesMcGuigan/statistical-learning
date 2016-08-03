@@ -11,31 +11,31 @@ var db = mongojs(config.db.data, db_tables);
 module.exports = function(app) {
 
     app.get("/data/distinct/currculum_years", function(request, response) {
-        db.curriculum.distinct("curriculum_year", function(error, rows) {
+        db.curriculum.distinct("curriculum_year", {}, function(error, rows) {
             response.write(JSON.stringify(rows, null, 4));
             response.end();
         });
     });
     app.get("/data/distinct/subjects", function(request, response) {
-        db.curriculum.distinct("subject", function(error, rows) {
+        db.curriculum.distinct("subject", {}, function(error, rows) {
             response.write(JSON.stringify(rows, null, 4));
             response.end();
         });
     });
     app.get("/data/distinct/topics", function(request, response) {
-        db.curriculum.distinct("topic", function(error, rows) {
+        db.curriculum.distinct("topic", {}, function(error, rows) {
             response.write(JSON.stringify(rows, null, 4));
             response.end();
         });
     });
     app.get("/data/distinct/teacher_names", function(request, response) {
-        db.teachers.distinct("teacher_name", function(error, rows) {
+        db.teachers.distinct("teacher_name", {}, function(error, rows) {
             response.write(JSON.stringify(rows, null, 4));
             response.end();
         });
     });
     app.get("/data/distinct/student_genders", function(request, response) {
-        //db.students.distinct("student_gender", function(error, rows) {
+        //db.students.distinct("student_gender", {}, function(error, rows) {
             response.write(JSON.stringify(["male","female"], null, 4));
             response.end();
         //});
