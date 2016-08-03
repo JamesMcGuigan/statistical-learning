@@ -5,7 +5,7 @@
 
 process.chdir(__dirname);
 
-var _        = require('lodash-contrib');
+var _        = require('lodash');
 var async    = require("async");
 var mongojs  = require("mongojs");
 var exec     = require('child_process').exec;
@@ -145,7 +145,7 @@ async.waterfall([
         lookup.quizes = [];
         db.collection('curriculum').find(function(error, curriculums) {
             _.forEach(curriculums, function(curriculum) {
-                var teacher = _(lookup.teachers).where({ curriculum_year: curriculum.curriculum_year }).sample();
+                var teacher = _(lookup.teachers).filter({ curriculum_year: curriculum.curriculum_year }).sample();
                 var quiz = {
                     "quiz_name":       curriculum.quiz_name,
                     "teacher_name":    teacher.teacher_name,
@@ -221,7 +221,7 @@ async.waterfall([
         lookup.quiz_submissions = [];
         var dirty_inserts = 0;
         _.forEach(lookup.students, function(student) {
-            _(lookup.quizes).where({ curriculum_year: student.curriculum_year }).forEach(function(quiz) {
+            _(lookup.quizes).filter({ curriculum_year: student.curriculum_year }).forEach(function(quiz) {
                 var quiz_submission = {
                     quiz_name:          quiz.quiz_name,
                     student_name:       student.student_name,

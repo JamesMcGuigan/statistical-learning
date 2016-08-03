@@ -65,7 +65,6 @@
     "jquery.cookie": "*",
     "jquery.easing": "*",
     "lodash": "*",
-    "lodash-contrib": "*",
     "lodash.math": "Delapouite/lodash.math",
     "parallax": "*",
     "requirejs": "*",
