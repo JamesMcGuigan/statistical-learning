@@ -28,27 +28,23 @@ angular.module('AngularApp.directives')
             //    c3: { bar: { width: { ratio: 0.5 } } }
             //}
             var timeoutId = null;
-            ["chartLayout","layout","data"].forEach(function(variable) {
-                scope.$watch(variable, function() {
-                    $timeout.cancel(timeoutId);
-                    timeoutId = $timeout(function() { //
-                        console.log("directive.chart.js:32:", "scope.chartLayout", variable, scope.chartLayout);
-                        switch( scope.chartLayout && scope.chartLayout.type ) {
-                            default: {
-                                console.log("directive.chart.js:21:", "scope.chartLayout", scope.chartLayout);
-                                break;
-                            }
-                            case "histogram": {
-                                scope.chart = c3.generate($.extend(true, {
-                                    bindto: element.find('.chart-inner')[0],
-                                    data:   chartData.histogram(scope.data, scope.chartLayout, scope.layout.fields)
-                                }, scope.chartLayout.c3));
-                                break;
-                            }
-                        }
-                    }, 100);
-                })
-            })
+            scope.$watchCollection("[chartLayout,layout,data]", _.debounce(function() {
+                console.log("directive.chart.js:32:", "scope.chartLayout", scope.chartLayout);
+                switch( scope.chartLayout && scope.chartLayout.type ) {
+                    default: {
+                        console.log("directive.chart.js:21:", "scope.chartLayout", scope.chartLayout);
+                        break;
+                    }
+                    case "histogram": {
+                        scope.chart = c3.generate($.extend(true, {
+                            bindto: element.find('.chart-inner')[0],
+                            data:   chartData.histogram(scope.data, scope.chartLayout, scope.layout.fields)
+                        }, scope.chartLayout.c3));
+                        break;
+                    }
+                }
+                $timeout(function() { scope.$apply(); })
+            }, 100));
         }
     }
 })
@@ -56,7 +52,7 @@ angular.module('AngularApp.directives')
     return {
         histogram: function(data, chartLayout, fields) {
             var x_label = fields && fields[chartLayout.x] || chartLayout.x;
-            var values  = _.pluck(data, chartLayout.x);
+            var values  = _.map(data, chartLayout.x);
 
             var buckets = {};
             if( chartLayout.hasOwnProperty("min") ) { buckets[chartLayout.min] = 0; }
